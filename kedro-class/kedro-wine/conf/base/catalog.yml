@@ -1,0 +1,26 @@
+# Here you can define all your datasets by using simple YAML syntax.
+#
+# Documentation for this file format can be found in "The Data Catalog"
+# Link: https://docs.kedro.org/en/stable/catalog-data/introduction/#data-catalog
+
+wine_raw:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/wine.csv
+  load_args:
+    encoding: utf-8
+  metadata:
+    kedro-viz:
+      layer: raw
+
+
+train_data:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/train.parquet
+
+val_data:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/val.parquet
+
+test_data:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/test.parquet
