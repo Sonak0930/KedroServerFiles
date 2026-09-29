@@ -24,3 +24,17 @@ val_data:
 test_data:
   type: pandas.ParquetDataset
   filepath: data/05_model_input/test.parquet
+
+model:
+  type: pickle.PickleDataset
+  filepath: data/06_models/model.pkl
+
+metrics:
+  type: json.JSONDataset
+  filepath: data/08_reporting/metrics.json
+
+predictions:
+  type: pandas.CSVDataset
+  filepath: data/07_model_output/predictions.csv
+  save_args:
+    index: false
